@@ -24,5 +24,8 @@ RUN wget -q -O- https://packagecloud.io/gpg.key | apt-key add
 RUN apt-get update
 RUN apt-get install -y grafana
 
+# Crate Port, Gravana Port, NodeRed Port
+EXPOSE 4200 4300 5432-5532 3000 1880
+
 # Run everything
 CMD service crate start | service grafana-server start | node-red | wc -
