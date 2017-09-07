@@ -11,6 +11,11 @@ RUN apt-get install -y apt-transport-https
 RUN apt-get update
 RUN apt-get install -y crate
 
+# Install NodeRed
+
+RUN apt-get update
+RUN apt-get install -y nodejs-legacy npm
+RUN npm install -g --unsafe-perm node-red node-red-admin
 
 # Install Grafana
 
@@ -19,6 +24,5 @@ RUN wget -q -O- https://packagecloud.io/gpg.key | apt-key add
 RUN apt-get update
 RUN apt-get install -y grafana
 
-
 # Run everything
-CMD service crate start | service grafana-server start | wc -
+CMD service crate start | service grafana-server start | node-red | wc -
