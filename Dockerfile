@@ -11,6 +11,11 @@ RUN apt-get install -y apt-transport-https
 RUN apt-get update
 RUN apt-get install -y crate
 
+
+ADD config/crate.yml /etc/crate/crate.yml
+ADD config/log4j2.properties /etc/crate/log4j2.properties
+
+
 # Install NodeRed
 
 RUN apt-get update
@@ -23,6 +28,8 @@ RUN echo "deb https://packagecloud.io/grafana/stable/debian/ jessie main" > /etc
 RUN wget -q -O- https://packagecloud.io/gpg.key | apt-key add
 RUN apt-get update
 RUN apt-get install -y grafana
+
+
 
 # Crate Port, Gravana Port, NodeRed Port
 EXPOSE 4200 4300 5432-5532 3000 1880
