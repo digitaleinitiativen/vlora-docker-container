@@ -1,11 +1,11 @@
 # Crate Configuration
 
 # Paths
-#path:
-    #  logs: /data/log
+# path:
+#  logs: /data/log
 #  data: /data/data
-#blobs:
-    #path: /data/blobs
+# blobs:
+#  path: /data/blobs
 
 network.host: 0.0.0.0
 
