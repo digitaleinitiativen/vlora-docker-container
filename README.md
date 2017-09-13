@@ -42,8 +42,8 @@ Dieser beinhaltet:
 * [x] Container bauen
 * [x] CrateDB konfigurieren (Ports exposen)
 * [x] Grafana konfigurieren (Ports exposen, Datenbankverbindung erstellen)
-* NodeRed konfigurieren (Datenbankverbindung erstellen)
+* [x] NodeRed konfigurieren (Datenbankverbindung erstellen)
 * CrateDB Standardtabelle erstellen
-* The Things Network anbinden
+* [x] The Things Network anbinden
 * [x] Daten persistieren
 * Container auf Docker Hub publishen

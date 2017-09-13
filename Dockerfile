@@ -1,4 +1,4 @@
-# docker run -p 1880:1880 -p 3000:3000 -p 4200:4200 -v //p/Docker/thingslogic-scd/data/crate:/var/lib/crate -v //p/Docker/thingslogic-scd/data/grafana:/var/lib/grafana/config id
+# docker run -p 1880:1880 -p 3000:3000 -p 4200:4200 -v //p/Docker/thingslogic-scd/data/crate:/var/lib/crate -v //p/Docker/thingslogic-scd/data/grafana:/var/lib/grafana/config -v //p/Docker/thingslogic-scd/data/nodered:/root/.node-red id
 
 FROM ubuntu:17.04
 
@@ -24,6 +24,7 @@ RUN apt-get update
 RUN apt-get install -y nodejs-legacy npm
 RUN npm install -g --unsafe-perm node-red node-red-admin
 RUN npm install -g node-red-contrib-crate
+RUN npm install -g node-red-contrib-ttn
 
 VOLUME /root/.node-red
 
