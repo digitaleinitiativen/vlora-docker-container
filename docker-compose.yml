@@ -1,0 +1,20 @@
+version: "3"
+image: ""
+ports:
+  - "1880:1880"
+  - "3000:3000"
+  - "4200:4200"
+
+crate:
+  image: crate:latest
+  volumes:
+    - ./data/crate:/var/lib/crate
+  ports:
+    - "4200:4200"
+
+
+grafana:
+  image: grafana/grafana
+  volumes:
+    - ./data/grafana:/var/lib/grafana/config
+    
