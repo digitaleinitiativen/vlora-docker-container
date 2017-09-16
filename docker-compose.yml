@@ -2,7 +2,6 @@ version: '2'
 services:
   crate:
     build: ./crate
-    image: afinkndreas/thingslogicscd-crate
     container_name: thingslogicscd-crate
     volumes:
       - ./crate/data:/var/lib/crate
@@ -17,7 +16,6 @@ services:
 
   grafana:
     build: ./grafana
-    image: afinkndreas/thingslogicscd-grafana
     container_name: thingslogicscd-grafana
     volumes:
       - ./grafana/data:/var/lib/grafana/config
@@ -32,7 +30,6 @@ services:
 
   nodered:
     build: ./nodered
-    image: afinkndreas/thingslogicscd-nodered
     container_name: thingslogicscd-nodered
     volumes:
       - ./nodered/data:/root/.node-red
