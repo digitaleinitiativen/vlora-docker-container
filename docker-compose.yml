@@ -1,20 +1,51 @@
-version: "3"
-image: ""
-ports:
-  - "1880:1880"
-  - "3000:3000"
-  - "4200:4200"
+version: '2'
+services:
+  crate:
+    build: ./crate
+    container_name: thingslogicscd-crate
+    volumes:
+      - ./crate/data:/var/lib/crate
+    ports:
+      - "4200:4200"
+      - "4300:4300"
+      - "5432-5532:5432-5532"
+    networks:
+      lognet:
+        ipv4_address: 172.16.238.10
+    tty: true
 
-crate:
-  image: crate:latest
-  volumes:
-    - ./data/crate:/var/lib/crate
-  ports:
-    - "4200:4200"
+  grafana:
+    build: ./grafana
+    container_name: thingslogicscd-grafana
+    volumes:
+      - ./grafana/data:/var/lib/grafana/config
+    ports:
+      - "3000:3000"
+    depends_on:
+      - crate
+    networks:
+      lognet:
+        ipv4_address: 172.16.238.20
+    tty: true
 
+  nodered:
+    build: ./nodered
+    container_name: thingslogicscd-nodered
+    volumes:
+      - ./nodered/data:/root/.node-red
+    ports:
+      - "1880:1880"
+    depends_on:
+      - crate
+    networks:
+      lognet:
+        ipv4_address: 172.16.238.30
+    tty: true
 
-grafana:
-  image: grafana/grafana
-  volumes:
-    - ./data/grafana:/var/lib/grafana/config
-    
+networks:
+  lognet:
+    ipam:
+      driver: default
+      config:
+      - subnet: 172.16.238.0/24
+        gateway: 172.16.238.1
