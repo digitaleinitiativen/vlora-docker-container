@@ -2,7 +2,6 @@ version: '2.1'
 services:
   crate:
     build: ./crate
-    image: afinkndreas/thingslogicscd-crate
     container_name: thingslogicscd-crate
     volumes:
       - ./crate/data:/var/lib/crate
