@@ -1,13 +1,13 @@
 # Crate Configuration
 
-# Paths
-# path:
-#  logs: /data/log
-#  data: /data/data
-# blobs:
-#  path: /data/blobs
-
-network.host: 0.0.0.0
-
+network.host: _site_
 cluster.name: thingslogic
 node.name: thingslogic
+bootstrap.memory_lock: false
+
+# Paths
+path:
+  logs: /data/log
+  data: /data/data
+blobs:
+  path: /data/blobs

@@ -1,0 +1,8 @@
+version: '3'
+services:
+  thingslogic-nodered:
+    build: ./
+    container_name: thingslogic-nodered
+    ports:
+      - "1880:1880"
+    tty: true

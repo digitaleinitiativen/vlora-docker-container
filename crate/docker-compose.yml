@@ -1,0 +1,8 @@
+version: '3'
+services:
+  thingslogic-crate:
+    build: ./
+    container_name: thingslogic-crate
+    ports:
+      - "4200:4200"
+    tty: true
