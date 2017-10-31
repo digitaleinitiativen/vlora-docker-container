@@ -1,5 +1,7 @@
 # Thingslogic Docker Container
 
+All instructions can be found here: https://github.com/thingslogic/thingslogic-scd/blob/master/docs.pdf
+
 ## Software Requirements
 ### Kitematik:
 - Windows: https://download.docker.com/win/stable/DockerToolbox.exe
